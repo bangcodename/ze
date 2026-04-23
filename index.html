@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Engineering Profile - Professional Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 0.8s ease;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 4rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-card p {
+            color: #666;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            transform: translateX(10px);
+        }
+
+        .service-item h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .portfolio-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            border-radius: 15px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .contact-form button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-info {
+            color: #666;
+        }
+
+        .contact-info h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                justify-content: space-around;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>IT Engineering Solutions</h1>
+            <p>Solusi teknologi terdepan untuk transformasi digital perusahaan Anda</p>
+            <a href="#contact" class="cta-button">Hubungi Kami</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">Tentang Kami</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Profesional IT Engineering</h3>
+                <p>Kami adalah tim ahli yang berpengalaman dalam mengembangkan dan mengimplementasikan solusi teknologi berkualitas tinggi untuk berbagai industri.</p>
+                <p>Dengan pengalaman lebih dari 10 tahun di bidang IT Engineering, kami berkomitmen untuk memberikan layanan terbaik dan inovatif.</p>
+                <p>Kepercayaan klien adalah prioritas utama kami dalam setiap proyek yang kami tangani.</p>
+            </div>
+            <div class="about-image">
+                💻
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2 class="section-title">Keahlian Kami</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-icon">🖥️</div>
+                <h3>Web Development</h3>
+                <p>Pengembangan website modern dengan teknologi terkini seperti React, Vue, dan Node.js</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📱</div>
+                <h3>Mobile Apps</h3>
+                <p>Aplikasi mobile native dan cross-platform untuk iOS dan Android</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">☁️</div>
+                <h3>Cloud Solutions</h3>
+                <p>Solusi cloud computing dengan AWS, Azure, dan Google Cloud</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🔒</div>
+                <h3>Cybersecurity</h3>
+                <p>Keamanan data dan sistem informasi dengan standar internasional</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚙️</div>
+                <h3>DevOps</h3>
+                <p>Infrastructure automation dan continuous integration/deployment</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3>Big Data Analytics</h3>
+                <p>Analisis data besar untuk insight bisnis yang actionable</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Layanan Kami</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>💡 Konsultasi Teknologi</h3>
+                <p>Memberikan konsultasi strategis untuk transformasi digital dan optimasi infrastruktur IT Anda</p>
+            </div>
+            <div class="service-item">
+                <h3>🛠️ Pengembangan Kustom</h3>
+                <p>Membangun solusi software yang disesuaikan dengan kebutuhan spesifik bisnis Anda</p>
+            </div>
+            <div class="service-item">
+                <h3>🚀 Implementasi & Integrasi</h3>
+                <p>Implementasi sistem dan integrasi dengan infrastruktur yang sudah ada</p>
+            </div>
+            <div class="service-item">
+                <h3>📞 Support & Maintenance</h3>
+                <p>Dukungan teknis 24/7 dan pemeliharaan sistem untuk performa optimal</p>
+            </div>
+            <div class="service-item">
+                <h3>📚 Training & Workshops</h3>
+                <p>Program pelatihan untuk meningkatkan kompetensi tim IT Anda</p>
+            </div>
+            <div class="service-item">
+                <h3>🔧 Audit & Optimasi</h3>
+                <p>Audit menyeluruh dan optimasi sistem untuk efisiensi maksimal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-container">
+            <h2 class="section-title">Portfolio Proyek</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🏢</div>
+                    <div class="portfolio-content">
+                        <h3>Enterprise Management System</h3>
+                        <p>Sistem manajemen enterprise terintegrasi untuk 500+ pengguna</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">📦</div>
+                    <div class="portfolio-content">
+                        <h3>E-commerce Platform</h3>
+                        <p>Platform e-commerce dengan fitur lengkap dan payment gateway</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">📈</div>
+                    <div class="portfolio-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Dashboard analitik real-time untuk business intelligence</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">🔐</div>
+                    <div class="portfolio-content">
+                        <h3>Security Infrastructure</h3>
+                        <p>Infrastruktur keamanan berlapis untuk perlindungan maksimal</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">📱</div>
+                    <div class="portfolio-content">
+                        <h3>Mobile Application</h3>
+                        <p>Aplikasi mobile native dengan user experience terbaik</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">☁️</div>
+                    <div class="portfolio-content">
+                        <h3>Cloud Migration</h3>
+                        <p>Migrasi data dan aplikasi ke cloud dengan zero downtime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-content">
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="email" placeholder="Email Anda" required>
+                <input type="tel" placeholder="Nomor Telepon" required>
+                <textarea rows="5" placeholder="Pesan Anda" required></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+            <div class="contact-info">
+                <h3>Informasi Kontak</h3>
+                <div class="contact-item">
+                    <strong>📍 Lokasi</strong>
+                    Jakarta, Indonesia
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Telepon</strong>
+                    +62 (21) 1234-5678
+                </div>
+                <div class="contact-item">
+                    <strong>📧 Email</strong>
+                    info@itengineer.com
+                </div>
+                <div class="contact-item">
+                    <strong>🕐 Jam Kerja</strong>
+                    Senin - Jumat: 09:00 - 18:00 WIB<br>
+                    Sabtu: 10:00 - 14:00 WIB
+                </div>
+                <div class="contact-item">
+                    <strong>🌐 Media Sosial</strong>
+                    <p>
+                        <a href="#" style="color: #667eea; text-decoration: none; margin-right: 1rem;">LinkedIn</a>
+                        <a href="#" style="color: #667eea; text-decoration: none; margin-right: 1rem;">Twitter</a>
+                        <a href="#" style="color: #667eea; text-decoration: none;">Facebook</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 IT Engineering Solutions. All rights reserved.</p>
+        <p>Solusi teknologi terpercaya untuk kesuksesan bisnis Anda</p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Terima kasih! Pesan Anda telah kami terima. Tim kami akan segera menghubungi Anda.');
+            event.target.reset();
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
